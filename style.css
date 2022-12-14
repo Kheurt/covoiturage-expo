@@ -1,0 +1,17 @@
+/* Liste voyages faits ou enregistrés (pour plus tard) */
+
+
+View{
+    box-sizing: border-box;
+
+    position: relative;
+    width: 375px;
+    height: 812px;
+
+    background: rgba(207, 224, 255, 0.9);
+    box-shadow: 0px 12px 50px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(6px);
+/* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 30px;
+}
