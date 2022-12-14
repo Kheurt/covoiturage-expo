@@ -5,7 +5,7 @@ function MyCars() {
             <div></div> //div du texte MY CARS
             <div></div> //div de l'image du véhicule 
             <div></div> // div de la liste des véhicules
-            <button></button> // 
+            <button></button> // bouton d'ajout d'un nouveau véhicule 
 
 
 
