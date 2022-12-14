@@ -1,10 +1,9 @@
-class MyCars extends Component {
-    state = {  } 
-    render() { 
-        return (
-            <div>MyCars Component</div>
-        );
-    }
+import { StyleSheet, Text, View } from 'react-native';
+
+function MyCars() {
+    return (
+        <Text>MyCars Component</Text>
+    );
 }
- 
-export default MyCars;
+
+export default MyCars ;
