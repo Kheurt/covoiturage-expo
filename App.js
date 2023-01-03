@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 //import Frontlist from './components/frontlist';
 
-function HomeScreen() {
+export function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Frontlist></Frontlist>
+      {/* <Frontlist></Frontlist> */}
       <StatusBar style="auto" />
     </View>
     
