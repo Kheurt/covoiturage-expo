@@ -2,12 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MyCars from './components/mycars/mycars';
+//import Frontlist from './components/frontlist';
 
 function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Frontlist></Frontlist>
       <StatusBar style="auto" />
     </View>
     
@@ -21,7 +21,6 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="MyCars" component={MyCars} />
       </Stack.Navigator>
     </NavigationContainer>
    );
