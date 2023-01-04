@@ -31,7 +31,7 @@ const Login = () => {
         <Text style={styles.btnTxt}>Login</Text>
       </Pressable>
       
-      <Text style={styles.forget}>Remember password</Text>
+      <Text style={styles.forget}>create an account</Text>
       <View style={styles.social}>
         <FontAwesome
           name = "facebook"
