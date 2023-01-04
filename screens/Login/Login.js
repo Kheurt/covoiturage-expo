@@ -9,86 +9,106 @@ import Checkbox from 'expo-checkbox';
 const Login = () => {
   const [isChecked, setChecked] = useState(false);
   return (
-    <View >
-      
-      <Text style={styles.login}>Login</Text>
-      <View style={styles.container}>
-        <FontAwesome name="envelope-o" size={24} style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Email Address"
-        />
-      </View>
-      <View style={styles.container}>
-        <FontAwesome name="envelope-o" size={24} style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-        />
-        <FontAwesome5 name="eye" size={24} color="black" style={styles.lock}/>
-      </View>
-      <Pressable style={styles.btn}>
-        <Text style={styles.btnTxt}>Login</Text>
-      </Pressable>
-      
-      <Text style={styles.forget}>create an account</Text>
-      <View style={styles.social}>
-        <FontAwesome
-          name = "facebook"
-          color = "#3b5998"
-          size={40}
-          style={styles.socialIcon}
-        /> 
-        <FontAwesome
-          name = "pinterest"
-          color = '#cb2027'
-          size={40}
-          style={styles.socialIcon}
+    <View style={{flex:1, width: "100%"}}>
+      <Text style={styles.login}>Sign In</Text>
+      <View style={styles.block}>
+        <View style={styles.container}>
+            <FontAwesome name="envelope-o" size={24} style={styles.icon} />
+            <TextInput
+            style={styles.input}
+            placeholder="Email Address"
+            />
+        </View>
+        <View style={styles.container}>
+            <FontAwesome name="envelope-o" size={24} style={styles.icon} />
+            <TextInput
+            style={styles.input}
+            placeholder="Password"
+            />
+            <FontAwesome5 name="eye" size={24} color="black" style={styles.lock}/>
+        </View>
+        <Pressable style={styles.btn}>
+            <Text style={styles.btnTxt}>Login</Text>
+        </Pressable>
+        
+        <Text style={styles.forget}>Remember password</Text>
+        <View style={styles.social}>
+            <FontAwesome
+            name = "facebook"
+            color = "#3b5998"
+            size={40}
+            style={styles.socialIcon}
+            /> 
+            <FontAwesome
+            name = "pinterest"
+            color = '#cb2027'
+            size={40}
+            style={styles.socialIcon}
 
-        /> 
-        <FontAwesome
-          name = 'google-plus-official'
-          color = '#dd4b39'
-          size={40}
-          style={styles.socialIcon}
-        /> 
-        <FontAwesome
-          name = 'instagram'
-          color = '#517fa4'
-          size={40}
-          style={styles.socialIcon}
-        />      
+            /> 
+            <FontAwesome
+            name = 'google-plus-official'
+            color = '#dd4b39'
+            size={40}
+            style={styles.socialIcon}
+            /> 
+            <FontAwesome
+            name = 'instagram'
+            color = '#517fa4'
+            size={40}
+            style={styles.socialIcon}
+            />      
+        </View>
+        <Text style={{marginLeft:20,marginTop:20}}>Or connect with the following</Text>
+        <View style={styles.imgContainer}>
+            <Image
+                style={styles.subtract}
+                source = {require("../assets/Subtract.png")}
+            />
+            <Image
+            style={styles.perso}
+            source = {require("../assets/image.png")}
+            />
+            <Image
+            style={styles.circle}
+            source = {require("../assets/circle.png")}
+            />
+            
+        </View>
       </View>
-      <Text style={{marginLeft:20,marginTop:20}}>Or connect with the following</Text>
-      <View style={styles.imgContainer}>
-        <Image
-          style={styles.perso}
-          source = {require("../assets/image.png")}
-        />
-        <Image
-          style={styles.circle}
-          source = {require("../assets/circle.png")}
-        />
-        <Image
-          style={styles.subtract}
-          source = {require("../assets/Subtract.png")}
-        />
-      </View>
+      
       
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  circle:{
-    position:"absolute",
-    zIndex:1000
-  },
+    circle:{
+        position:"absolute",
+        zIndex:1000,
+        bottom:0
+    },
     perso:{
       position:"absolute",
-      zIndex:0
+      zIndex:0,
+      height:"100%",
+      width:"100%",
     },
-    
+    subtract:{
+        position:"absolute",
+        bottom:0,
+        zIndex:100,
+        width:"100%",
+      },
+    imgContainer:{
+        height:"30%",
+        width:"100%",
+        position: "absolute",
+        bottom: 0
+    },
+    block:{
+        flex:1
+      },
     container: {
         flexDirection:"row",
         justifyContent: "center",
@@ -97,6 +117,7 @@ const styles = StyleSheet.create({
     login:{
       alignSelf:"center",
       fontSize:30,
+      margin:50,
     },
     input: {
       width:250,
@@ -142,19 +163,8 @@ const styles = StyleSheet.create({
       fontSize:20,
       alignSelf:"center"
     },
-    subtract:{
-      //position:"absolute",
-      //top:'116%',
-      //left:-50,
-      zIndex:100,
-      //width:250,
-      //width:"100%",
-    },
-    imgContainer:{
-      border:1,
-      borderColor:"black",
-      top:"20%",
-    },
+    
+    
     checkbox:{
       alignSelf:"center",
       marginRight:'5%',
@@ -177,7 +187,8 @@ const styles = StyleSheet.create({
     socialIcon:{
       marginLeft:10,
       marginRight:10
-    }
+    },
+    
   });
 
 export default Login;
