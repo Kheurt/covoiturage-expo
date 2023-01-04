@@ -1,19 +1,16 @@
-function MyCars() {
+import { StyleSheet, Text, View, Button } from 'react-native'
+import { StatusBar } from 'expo-status-bar';
+
+const MyCars = () => {
     return ( 
-        <div>
-            <div></div> {/*div des icones d'en-tête*/}
-            <div></div> {/*//div du texte MY CARS*/}
-            <div></div> {/*div de l'image du véhicule */}
-            <div></div> {/* div de la liste des véhicules*/}
-            <button></button> {/* bouton d'ajout d'un nouveau véhicule*/} 
+        <View>
+             {/*div des icones d'en-tête*/}
+             {/*//div du texte MY CARS*/}
+             {/*div de l'image du véhicule */}
+             {/* div de la liste des véhicules*/}
+             {/* bouton d'ajout d'un nouveau véhicule*/} 
 
-
-
-
-
-
-
-        </div> 
+        </View> 
     );
 }
 
