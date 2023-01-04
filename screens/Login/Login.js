@@ -6,11 +6,11 @@ import Checkbox from 'expo-checkbox';
 
 // import { Container } from './styles';
 
-const Login = () => {
+const SignIn = () => {
   const [isChecked, setChecked] = useState(false);
   return (
     <View style={{flex:1, width: "100%"}}>
-      <Text style={styles.login}>Sign In</Text>
+      <Text style={styles.login}>Login</Text>
       <View style={styles.block}>
         <View style={styles.container}>
             <FontAwesome name="envelope-o" size={24} style={styles.icon} />
@@ -27,11 +27,12 @@ const Login = () => {
             />
             <FontAwesome5 name="eye" size={24} color="black" style={styles.lock}/>
         </View>
+        
         <Pressable style={styles.btn}>
             <Text style={styles.btnTxt}>Login</Text>
         </Pressable>
         
-        <Text style={styles.forget}>Remember password</Text>
+        <Text style={styles.forget}>create Account</Text>
         <View style={styles.social}>
             <FontAwesome
             name = "facebook"
@@ -59,7 +60,6 @@ const Login = () => {
             style={styles.socialIcon}
             />      
         </View>
-        <Text style={{marginLeft:20,marginTop:20}}>Or connect with the following</Text>
         <View style={styles.imgContainer}>
             <Image
                 style={styles.subtract}
@@ -83,6 +83,9 @@ const Login = () => {
 }
 
 const styles = StyleSheet.create({
+    checkboxTxt:{
+        marginTop:15,
+    },
     circle:{
         position:"absolute",
         zIndex:1000,
@@ -166,9 +169,7 @@ const styles = StyleSheet.create({
     
     
     checkbox:{
-      alignSelf:"center",
-      marginRight:'5%',
-      marginTop:15
+        marginTop:15,
     },
     check:{
       flexDirection:"row",
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
     },
     forget:{
       alignSelf:"flex-end",
-      margin:20,
+      margin:15,
       color:"#0386D0"
     },
     social:{
@@ -191,4 +192,4 @@ const styles = StyleSheet.create({
     
   });
 
-export default Login;
+export default SignIn;

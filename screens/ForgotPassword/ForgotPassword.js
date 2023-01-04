@@ -8,6 +8,10 @@ import Checkbox from 'expo-checkbox';
 
 const SignIn = () => {
   const [isChecked, setChecked] = useState(false);
+  const [email, setEmail] = useState();
+  const emailHandler = (e) =>{
+    setEmail(e.target.value)
+  }
   return (
     <View style={{flex:1, width: "100%"}}>
       <Text style={styles.login}>Sign In</Text>
@@ -15,26 +19,21 @@ const SignIn = () => {
         <View style={styles.container}>
             <FontAwesome name="envelope-o" size={24} style={styles.icon} />
             <TextInput
-            style={styles.input}
-            placeholder="Email Address"
+                style={styles.input}
+                placeholder="Email Address"
+                onChange={emailHandler}
             />
         </View>
+        {email?<Text>Mail sent on the Address: <Text style={styles.emailTxt}>{email}</Text></Text>:""}
         <View style={styles.container}>
             <FontAwesome name="envelope-o" size={24} style={styles.icon} />
             <TextInput
             style={styles.input}
-            placeholder="Password"
+            placeholder="Enter the confirmation code send"
             />
             <FontAwesome5 name="eye" size={24} color="black" style={styles.lock}/>
         </View>
-        <View style={styles.container}>
-            <FontAwesome name="envelope-o" size={24} style={styles.icon} />
-            <TextInput
-            style={styles.input}
-            placeholder="Confirm Password"
-            />
-            <FontAwesome5 name="eye" size={24} color="black" style={styles.lock}/>
-        </View>
+        
         <Pressable style={styles.btn}>
             <Text style={styles.btnTxt}>Sign In</Text>
         </Pressable>
@@ -79,6 +78,7 @@ const SignIn = () => {
             style={styles.socialIcon}
             />      
         </View>
+
         <View style={styles.imgContainer}>
             <Image
                 style={styles.subtract}
@@ -94,14 +94,16 @@ const SignIn = () => {
             />
             
         </View>
+        <Text style={{marginLeft:20,marginTop:20}}>Or recover with the following</Text>
       </View>
-      
-      
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+    emailTxt:{
+        fontWeight:"bold"
+    },
     checkboxTxt:{
         marginTop:15,
     },
