@@ -1,12 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
+import fontawesome from '@fortawesome/fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faCircle, faHouse, faUser, faGear } from '@fortawesome/free-solid-svg-icons'
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import ProfileScreen from './screens/profile/Profile';
 import SettingScreen from './screens/profile/Settings';
-//import { HomeScreen } from './screens/home/HomeScreen';
 import HomeScreen from './screens/home/HomeScreen';
+import PlanTripScreen from './screens/trip/PlanTrip';
+import { LoginScreen } from './screens/user/Login'
+import { RegistrationScreen } from './screens/user/Register'
+
+fontawesome.library.add(faCircle, faHouse, faUser, faGear);
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,11 +29,13 @@ function Navigator() {
    );
 }
 
+//Tab bar renderer
 function AppTabBar({ state, descriptors, navigation }) {
   return (
-    <View style={{ flexDirection: 'row' }}>
+    <View style={styles.tabBarView}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
+        const icon = options.iconValue !=undefined ? options.iconValue : "fa-solid fa-circle"
         const label =
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
@@ -62,10 +72,12 @@ function AppTabBar({ state, descriptors, navigation }) {
             onPress={onPress}
             onLongPress={onLongPress}
             style={{ flex: 1 }}
+            key={label+'-id'}
           >
-            <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
+            <FontAwesomeIcon icon={icon} style={{ color: isFocused ? '#673ab7' : '#222' }} />
+            {/* <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
               {label}
-            </Text>
+            </Text> */}
           </TouchableOpacity>
         );
       })}
@@ -74,12 +86,59 @@ function AppTabBar({ state, descriptors, navigation }) {
 }
 
 function NavigatorTabs() {
+  //const tabBarHeight = useBottomTabBarHeight();
   return (
     // <Tab.Navigator>
-    <Tab.Navigator tabBar={(props) => <AppTabBar {...props} />}>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen name="Settings" component={SettingScreen} />
+    <Tab.Navigator tabBar={(props) => <AppTabBar {...props} />} screenOptions={{
+      tabBarStyle: { position: 'absolute' },
+    }}
+    >
+      {/* <Tab.Screen name="Home" icon="fa-solid fa-house" component={HomeScreen} /> */}
+      <Tab.Screen name="Home" component={HomeScreen} options={{
+          tabBarLabel: 'Home',
+          // tabBarIcon: ({ color, size }) => (
+          //   <FontAwesomeIcon icon="fa-solid fa-house" color={'#002244'} size={10} />
+          // ),
+          iconValue:"fa-solid fa-house fa-2xl",
+          tabBarHideOnKeyboard:true,
+        }}
+      />
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{
+          tabBarLabel: 'Profile',
+          // tabBarIcon: ({ color, size }) => (
+          //   <FontAwesomeIcon icon="fa-solid fa-user" color={'#002244'} size={10} />
+          // ),
+          iconValue:"fa-solid fa-user fa-2xl",
+          tabBarHideOnKeyboard:true,
+        }}
+      />
+      <Tab.Screen name="Add" component={PlanTripScreen} options={{
+          tabBarLabel: 'Settings',
+          // tabBarIcon: ({ color, size }) => (
+          //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
+          // ),
+          iconValue:"fa-solid fa-square-plus fa-2xl",
+          tabBarHideOnKeyboard:true,
+        }}
+      />
+      <Tab.Screen name="Account" component={LoginScreen} options={{
+          tabBarLabel: 'Login',
+          // tabBarIcon: ({ color, size }) => (
+          //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
+          // ),
+          iconValue:"fa-solid fa-gear fa-2xl",
+          tabBarHideOnKeyboard:true,
+        }}
+      />
+      <Tab.Screen name="Register" component={RegistrationScreen} options={{
+          tabBarLabel: 'Register',
+          // tabBarIcon: ({ color, size }) => (
+          //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
+          // ),
+          iconValue:"fa-solid fa-gear fa-2xl",
+          tabBarHideOnKeyboard:true,
+        }}
+      />
     </Tab.Navigator>
   );
 }
@@ -100,4 +159,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  tabBarView: {
+    //
+    flexDirection: 'row',
+    padding: 20,
+    paddingBottom: 40,
+    paddingLeft: 50,
+    //
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderTopColor: '#dcc'
+  }
 });
+

@@ -6,11 +6,11 @@ import Checkbox from 'expo-checkbox';
 
 // import { Container } from './styles';
 
-const SignIn = () => {
+export const RegistrationScreen = () => {
   const [isChecked, setChecked] = useState(false);
   return (
     <View style={{flex:1, width: "100%"}}>
-      <Text style={styles.login}>Login</Text>
+      <Text style={styles.login}>Sign In</Text>
       <View style={styles.block}>
         <View style={styles.container}>
             <FontAwesome name="envelope-o" size={24} style={styles.icon} />
@@ -27,12 +27,31 @@ const SignIn = () => {
             />
             <FontAwesome5 name="eye" size={24} color="black" style={styles.lock}/>
         </View>
-        
+        <View style={styles.container}>
+            <FontAwesome name="envelope-o" size={24} style={styles.icon} />
+            <TextInput
+            style={styles.input}
+            placeholder="Confirm Password"
+            />
+            <FontAwesome5 name="eye" size={24} color="black" style={styles.lock}/>
+        </View>
         <Pressable style={styles.btn}>
-            <Text style={styles.btnTxt}>Login</Text>
+            <Text style={styles.btnTxt}>Sign In</Text>
         </Pressable>
+        <View style={{alignSelf:"center",flexDirection:'row',justifyContent:"space-between"}}>
+            <View style={{flexDirection:'row',}}>
+                <Checkbox
+                    style={styles.checkbox}
+                    value={isChecked}
+                    onValueChange={setChecked}
+                    color={isChecked ? '#4630EB' : undefined}
+                />
+                <Text style={styles.checkboxTxt}>TripPlaner</Text>
+            </View>
+            
+            <Text style={styles.forget}>Already have an account?</Text>
+        </View>
         
-        <Text style={styles.forget}>create Account</Text>
         <View style={styles.social}>
             <FontAwesome
             name = "facebook"
@@ -63,15 +82,15 @@ const SignIn = () => {
         <View style={styles.imgContainer}>
             <Image
                 style={styles.subtract}
-                source = {require("../assets/Subtract.png")}
+                source = {require("../../assets/Subtract.png")}
             />
             <Image
             style={styles.perso}
-            source = {require("../assets/image.png")}
+            source = {require("../../assets/image.png")}
             />
             <Image
             style={styles.circle}
-            source = {require("../assets/circle.png")}
+            source = {require("../../assets/circle.png")}
             />
             
         </View>
@@ -191,5 +210,3 @@ const styles = StyleSheet.create({
     },
     
   });
-
-export default SignIn;
