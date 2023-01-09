@@ -93,6 +93,15 @@ function NavigatorTabs() {
       tabBarStyle: { position: 'absolute' },
     }}
     >
+      <Tab.Screen name="Account" component={LoginScreen} options={{
+          tabBarLabel: 'Login',
+          // tabBarIcon: ({ color, size }) => (
+          //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
+          // ),
+          iconValue:"fa-solid fa-gear fa-2xl",
+          tabBarHideOnKeyboard:true,
+        }}
+      />
       {/* <Tab.Screen name="Home" icon="fa-solid fa-house" component={HomeScreen} /> */}
       <Tab.Screen name="Home" component={HomeScreen} options={{
           tabBarLabel: 'Home',
@@ -118,15 +127,6 @@ function NavigatorTabs() {
           //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
           // ),
           iconValue:"fa-solid fa-square-plus fa-2xl",
-          tabBarHideOnKeyboard:true,
-        }}
-      />
-      <Tab.Screen name="Account" component={LoginScreen} options={{
-          tabBarLabel: 'Login',
-          // tabBarIcon: ({ color, size }) => (
-          //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
-          // ),
-          iconValue:"fa-solid fa-gear fa-2xl",
           tabBarHideOnKeyboard:true,
         }}
       />
