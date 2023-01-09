@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Button, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import { Form, FormItem } from 'react-native-form-component';
 
 export const PlanTripScreen = () => {
@@ -17,15 +17,23 @@ export const PlanTripScreen = () => {
      );
 }
 
-const [departure,setDeparture] = useState()
-const [destination,setDestination] = useState()
-const [date,setDate] = useState()
-const [hour,setHour] = useState()
-const [places,setPlaces] = useState()
-const [budget,setBudget] = useState()
+
 
 export const AddTripForm = () => {
+
+    const [departure,setDeparture] = useState()
+    const [destination,setDestination] = useState()
+    const [date,setDate] = useState()
+    const [hour,setHour] = useState()
+    const [places,setPlaces] = useState()
+    const [budget,setBudget] = useState()
+
     const departureInput = useRef();
+    const destinationInput = useRef();
+    const dateInput = useRef();
+    const hourInput = useRef();
+    const placesInput = useRef();
+    const budgetInput = useRef();
 
     function validateForm(){
         //submit

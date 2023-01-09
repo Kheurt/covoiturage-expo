@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import fontawesome from '@fortawesome/fontawesome'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCircle, faHouse, faUser, faGear } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faHouse, faUser, faGear, faSquarePlus } from '@fortawesome/free-solid-svg-icons'
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -14,7 +14,7 @@ import PlanTripScreen from './screens/trip/PlanTrip';
 import { LoginScreen } from './screens/user/Login'
 import { RegistrationScreen } from './screens/user/Register'
 
-fontawesome.library.add(faCircle, faHouse, faUser, faGear);
+fontawesome.library.add(faCircle, faHouse, faUser, faGear, faSquarePlus);
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
