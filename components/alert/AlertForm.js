@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput,Image } from 'react-native';
 import { Link, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AlertInput from './AlertInput';
-import Existing from './ExistingAlert';
+import AlertItem from './AlertItem';
 // import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Header } from '../../layout/Index'
@@ -13,31 +13,23 @@ export default function AlertForm() {
   return ( 
     <View style={styles.container}>
       <View style={styles.container1}>
-        <View style={styles.head1}>
-           <View style={styles.circle1}><FontAwesome name="angle-left" size={48} style={styles.icon1}/></View>
-           <View>
-               <Image source={require('../../assets/avatar-img.jpg')} style={styles.circle2}/>
-           </View>
+
+        <Header screenTitle={"New Alert"} />
+        
+        <AlertInput text={'Departure'} icon={"fa-solid fa-circle-dot"}/>
+        <AlertInput text={'Destination'} icon={"fa-solid fa-location-dot"}/>
+        <AlertInput text={'Date'} icon={"fa-solid fa-calendar-days"}/>
+        <AlertInput text={'Schedule'} icon={"fa-solid fa-clock"} />
+        <AlertInput text={'Number of Places'} icon={"fa-solid fa-user"}/>
+        <AlertInput text={'Budget'} icon={"fa-solid fa-money-bill"}/>
+
+        <View style={styles.send}>
+          <Text style={styles.sendText}>send</Text>
         </View>
-        <Text style={styles.itemText}> New Alert </Text>
-
-        {/* <Header screenTitle={"New Alert"} /> */}
-
-          <AlertInput text={'Departure'} icon={"fa-solid fa-circle-dot"}/>
-          <AlertInput text={'Destination'} icon={"fa-solid fa-location-dot"}/>
-          <AlertInput text={'Date'} icon={"fa-solid fa-calendar-days"}/>
-          <AlertInput text={'Schedule'} icon={"fa-solid fa-clock"} />
-          <AlertInput text={'Number of Places'} icon={"fa-solid fa-user"}/>
-          <AlertInput text={'Budget'} icon={"fa-solid fa-money-bill"}/>
-       <View style={styles.send}>
-           <Text style={styles.sendText}>send</Text>
-       </View>
-         <Text style={styles.list}>List of existing alerts </Text>
+        
+        <Text style={styles.list}>List of existing alerts </Text>
       </View>
-          <Existing/>
-          <View>
-             
-          </View>
+      <AlertItem/>
     </View>
    );
 }

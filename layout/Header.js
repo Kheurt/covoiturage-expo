@@ -1,17 +1,18 @@
 import { View, Image, Text, StyleSheet } from 'react-native';
-import FontAwesome from 'react-fontawesome';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 function Header( {screenTitle} ) {
     return (
-        <> 
+        <View> 
             <View style={styles.head}>
-                <View style={styles.backCircle}><FontAwesome name="angle-left" size="lg" style={styles.icon}/></View>
+                <View style={styles.backCircle}><FontAwesome name="angle-left" size={48} style={styles.icon}/></View>
                 <View>
                     <Image source={require('../assets/avatar-img.jpg')} style={styles.avatar}/>
                 </View>
             </View>
             <Text style={styles.itemText}> {screenTitle} </Text>
-        </>
+        </View>
      );
 }
 
