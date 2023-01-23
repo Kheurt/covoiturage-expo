@@ -1,14 +1,20 @@
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
+import { TripAlert } from '../../components/Index';
+import { TripDetails } from '../../components/Index';
 
 const HomeScreen = ( {navigation} ) => {
     return (
       <View style={styles.container}>
-        <View>
+        {/* <View>
         <Button
           title="Settings"
           onPress={() => navigation.navigate('Settings')}
         />
+        </View> */}
+        <View>
+          {/* <TripAlert /> */}
+          <TripDetails />
         </View>
         <StatusBar style="auto" />
       </View>
