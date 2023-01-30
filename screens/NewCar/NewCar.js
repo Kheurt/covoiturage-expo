@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import HeaderMain from '../../components/HeaderMain/HeaderMain';
 import Title from '../../components/Title';
 import NewFormInput from '../../components/forms/NewFormInput';
+import Existing from './existing';
 const NewCar = () => {
     const [togleOption, setTogleOption] = useState(1);
     const togleHandler = (val)=> setTogleOption(val)
@@ -28,7 +29,8 @@ const NewCar = () => {
                     <Text style={styles.add}>add</Text>
                 </TouchableOpacity>
             </View>
-            <Text>test</Text>
+            <Existing/>
+            
         </View> 
     );
 }
