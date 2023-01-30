@@ -22,7 +22,7 @@ const NewCar = () => {
                 </View>
                 <NewFormInput title='Marque' placeholder='Entrer la marque'/>
                 <NewFormInput title='Matriculation' placeholder='Entrer le matricule'/>
-                <NewFormInput title='Type de moteur' placeholder='Entrer le matricule'/>
+                <NewFormInput title='Type de moteur' placeholder='Entrer le moteur'/>
                 <NewFormInput title='Nombre de places' placeholder='Entrer le nombre de places'/>
                 <TouchableOpacity style={styles.btnSend}>
                     <Text style={styles.add}>add</Text>
