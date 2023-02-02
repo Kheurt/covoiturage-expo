@@ -6,7 +6,7 @@ import Checkbox from 'expo-checkbox';
 
 // import { Container } from './styles';
 
-export const RegistrationScreen = () => {
+export const RegistrationScreen = ({navigation}) => {
   const [isChecked, setChecked] = useState(false);
   return (
     <View style={{flex:1, width: "100%"}}>
@@ -36,7 +36,9 @@ export const RegistrationScreen = () => {
             <FontAwesome5 name="eye" size={24} color="black" style={styles.lock}/>
         </View>
         <Pressable style={styles.btn}>
-            <Text style={styles.btnTxt}>Sign In</Text>
+            <Text style={styles.btnTxt}
+              onPress={()=>{navigation.navigate('LetsGo')}}
+            >Sign In</Text>
         </Pressable>
         <View style={{alignSelf:"center",flexDirection:'row',justifyContent:"space-between"}}>
             <View style={{flexDirection:'row',}}>
@@ -49,7 +51,9 @@ export const RegistrationScreen = () => {
                 <Text style={styles.checkboxTxt}>TripPlaner</Text>
             </View>
             
-            <Text style={styles.forget}>Already have an account?</Text>
+            <Text style={styles.forget}
+              onPress={()=>{navigation.navigate('Login')}}
+            >Already have an account?</Text>
         </View>
         
         <View style={styles.social}>

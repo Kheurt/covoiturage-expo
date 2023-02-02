@@ -1,25 +1,19 @@
 import React from "react";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { StyleSheet,Text, View, Image } from 'react-native';
-
-function AlertItem ( {title, navigation:{navigate}} ){
+function Existing (){
     return(
       <View style={styles.box1}>
           <View>
-             <Image source={require('../../assets/avatar-img.jpg')} style={styles.circle1}/>
+             <Image source={require('../../assets/profilImg.png')} style={styles.circle1}/>
           </View>
-          <Text style={styles.name}>{title|'Paul'}</Text>
-          <View style={styles.circle2}>
-            <FontAwesome 
-            onPress={()=>{navigate("Alerts")}} 
-            name="angle-right" size={40} style={styles.icon1}
-            />
-          </View>
+          <Text style={styles.name}>Paul</Text>
+          <View style={styles.circle2}><FontAwesome name="angle-right" size={40} style={styles.icon1}/></View>
       </View>
     )
 }
 
-export default AlertItem;
+export default Existing;
 
 const styles = StyleSheet.create({
     box1:{
@@ -29,7 +23,7 @@ const styles = StyleSheet.create({
       borderRadius: 29,
       height: 100,
       width: 360,
-      backgroundColor: '#D5E3FF',
+      backgroundColor: '#FFF',
       flexDirection: 'row',
       justifyContent: 'space-between',
       paddingTop:30,
@@ -50,7 +44,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 30,
         borderColor: 0,
-        backgroundColor:'rgba(84, 91, 253, 1)',
+        backgroundColor:'#F6623E',
     },
     name:{
        fontSize:20,

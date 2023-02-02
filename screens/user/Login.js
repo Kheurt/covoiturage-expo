@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import { View,Text,StyleSheet,TextInput, Pressable,Image } from 'react-native';
+import { View,Text,StyleSheet,TextInput, Pressable,Image, Link } from 'react-native';
 import { FontAwesome,Feather,FontAwesome5 } from '@expo/vector-icons';
 //import RadioGroup from 'react-native-radio-buttons-group';
 // import Checkbox from 'expo-checkbox';
 
 // import { Container } from './styles';
 
-export const LoginScreen = () => {
+export const LoginScreen = ({navigation}) => {
   const [isChecked, setChecked] = useState(false);
   return (
     <View style={{flex:1, width: "100%"}}>
@@ -29,10 +29,14 @@ export const LoginScreen = () => {
         </View>
         
         <Pressable style={styles.btn}>
-            <Text style={styles.btnTxt}>Login</Text>
+            <Text style={styles.btnTxt}
+              onPress={()=>{navigation.navigate('LetsGo')}}
+            >Login</Text>
         </Pressable>
         
-        <Text style={styles.forget}>create Account</Text>
+        <Text style={styles.forget}
+          onPress={()=>{navigation.navigate('Register')}}
+        >create Account</Text>
         <View style={styles.social}>
             <FontAwesome
             name = "facebook"

@@ -4,9 +4,9 @@ import { Form, FormItem } from 'react-native-form-component';
 
 export const PlanTripScreen = () => {
     return ( 
-        <View>
+        <View style={style.body}>
             <Text>Ajouter une alert</Text>
-            <View style={style.body}>
+            <View >
                 <AddTripForm/>
             </View>
             <Text>Liste des alertes existantes</Text>
@@ -96,7 +96,11 @@ export const AddTripForm = () => {
 
 const style = StyleSheet.create({
     title:{},
-    body:{}
+    body:{
+        backgroundColor: '#D5E3FF',
+        padding: 20,
+        paddingTop: 100,
+    }
 })
 
 export default PlanTripScreen;

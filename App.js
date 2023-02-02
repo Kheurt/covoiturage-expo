@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import fontawesome from '@fortawesome/fontawesome'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCircle, faHouse, faUser, faGear, faSquarePlus } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faHouse, faUser, faGear, faSquarePlus, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons'
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,18 +13,21 @@ import HomeScreen from './screens/home/HomeScreen';
 import PlanTripScreen from './screens/trip/PlanTrip';
 import { LoginScreen } from './screens/user/Login'
 import { RegistrationScreen } from './screens/user/Register'
+import { SearchScreen } from './screens/trip/Search'
+import { Menu } from './layout/Menu';
+import { HomeNavigatorTabs } from './screens/home/HomeNavigator';
 
-fontawesome.library.add(faCircle, faHouse, faUser, faGear, faSquarePlus);
+fontawesome.library.add(faCircle, faHouse, faUser, faGear, faSquarePlus, faMagnifyingGlass, faBars);
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function Navigator() {
   return ( 
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="Settings" component={SettingScreen} />
+    <Stack.Navigator initialRouteName="LetsGo">
+      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown:false, }}/>
+      <Stack.Screen name="Register" component={RegistrationScreen} options={{ headerShown:false, }}/>
+      <Stack.Screen name="LetsGo" component={HomeNavigatorTabs} options={{ headerShown:false, }}/>
     </Stack.Navigator>
    );
 }
@@ -90,10 +93,10 @@ function NavigatorTabs() {
   return (
     // <Tab.Navigator>
     <Tab.Navigator tabBar={(props) => <AppTabBar {...props} />} screenOptions={{
-      tabBarStyle: { position: 'absolute' },
-    }}
+      tabBarStyle: { position: 'absolute', display: 'none'  },
+    }} initialRouteName="Add"
     >
-      <Tab.Screen name="Account" component={LoginScreen} options={{
+      {/* <Tab.Screen name="Account" component={LoginScreen} options={{
           tabBarLabel: 'Login',
           // tabBarIcon: ({ color, size }) => (
           //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
@@ -101,14 +104,32 @@ function NavigatorTabs() {
           iconValue:"fa-solid fa-gear fa-2xl",
           tabBarHideOnKeyboard:true,
         }}
-      />
+      /> */}
       {/* <Tab.Screen name="Home" icon="fa-solid fa-house" component={HomeScreen} /> */}
       <Tab.Screen name="Home" component={HomeScreen} options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Home', headerShown:false,
           // tabBarIcon: ({ color, size }) => (
           //   <FontAwesomeIcon icon="fa-solid fa-house" color={'#002244'} size={10} />
           // ),
           iconValue:"fa-solid fa-house fa-2xl",
+          tabBarHideOnKeyboard:true,
+        }}
+      />
+      <Tab.Screen name="Search" component={SearchScreen} options={{
+        tabBarLabel: 'Search',
+        // tabBarIcon: ({ color, size }) => (
+          //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
+          // ),
+          iconValue:"fa-solid fa-magnifying-glass",
+          tabBarHideOnKeyboard:true,
+        }}
+      />
+      <Tab.Screen name="Add" component={PlanTripScreen} options={{
+        tabBarLabel: 'Settings', headerShown:false,
+        // tabBarIcon: ({ color, size }) => (
+          //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
+          // ),
+          iconValue:"fa-solid fa-square-plus fa-2xl",
           tabBarHideOnKeyboard:true,
         }}
       />
@@ -121,24 +142,6 @@ function NavigatorTabs() {
           tabBarHideOnKeyboard:true,
         }}
       />
-      <Tab.Screen name="Add" component={PlanTripScreen} options={{
-          tabBarLabel: 'Settings',
-          // tabBarIcon: ({ color, size }) => (
-          //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
-          // ),
-          iconValue:"fa-solid fa-square-plus fa-2xl",
-          tabBarHideOnKeyboard:true,
-        }}
-      />
-      <Tab.Screen name="Register" component={RegistrationScreen} options={{
-          tabBarLabel: 'Register',
-          // tabBarIcon: ({ color, size }) => (
-          //   <FontAwesomeIcon icon="fa-solid fa-gear" color={'#002244'} size={10} />
-          // ),
-          iconValue:"fa-solid fa-gear fa-2xl",
-          tabBarHideOnKeyboard:true,
-        }}
-      />
     </Tab.Navigator>
   );
 }
@@ -146,8 +149,7 @@ function NavigatorTabs() {
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <Navigator /> */}
-      <NavigatorTabs />
+      <Navigator />
     </NavigationContainer>
   );
 }

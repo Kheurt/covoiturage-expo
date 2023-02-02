@@ -7,29 +7,44 @@ import AlertItem from './AlertItem';
 // import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Header } from '../../layout/Index'
+import React, { useRef, useState } from 'react';
+import { Form, FormItem } from 'react-native-form-component';
 
 
-export default function AlertForm() {
+export default function AlertForm( {navigation} ) {
+
+  function validateForm(){
+    //submit
+  }
+
   return ( 
     <View style={styles.container}>
       <View style={styles.container1}>
 
-        <Header screenTitle={"New Alert"} />
-        
-        <AlertInput text={'Departure'} icon={"fa-solid fa-circle-dot"}/>
-        <AlertInput text={'Destination'} icon={"fa-solid fa-location-dot"}/>
-        <AlertInput text={'Date'} icon={"fa-solid fa-calendar-days"}/>
-        <AlertInput text={'Schedule'} icon={"fa-solid fa-clock"} />
-        <AlertInput text={'Number of Places'} icon={"fa-solid fa-user"}/>
-        <AlertInput text={'Budget'} icon={"fa-solid fa-money-bill"}/>
+        <Header screenTitle={"New Alert"} menu={true} />
 
-        <View style={styles.send}>
-          <Text style={styles.sendText}>send</Text>
-        </View>
+        <Form onButtonPress={() => {console.warn('Form Submited');validateForm() }} 
+          buttonText="Ajouter"
+          buttonStyle={//{display:'none'}
+            styles.send}
+          >
+          <AlertInput text={'Departure'} icon={"fa-solid fa-circle-dot"}/>
+          <AlertInput text={'Destination'} icon={"fa-solid fa-location-dot"}/>
+          <AlertInput text={'Date'} icon={"fa-solid fa-calendar-days"}/>
+          <AlertInput text={'Schedule'} icon={"fa-solid fa-clock"} />
+          <AlertInput text={'Number of Places'} icon={"fa-solid fa-user"}/>
+          <AlertInput text={'Budget'} icon={"fa-solid fa-money-bill"}/>
+        </Form>
         
-        <Text style={styles.list}>List of existing alerts </Text>
+
+        {/* <View style={styles.send}>
+          <Text style={styles.sendText}>send</Text>
+        </View> */}
+        
+        
       </View>
-      <AlertItem/>
+      <Text style={styles.list}>List of existing alerts </Text>
+      <AlertItem navigation={navigation} />
     </View>
    );
 }
@@ -38,13 +53,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgba(245, 245, 245, 1)',
+    margin: -1
   },
   container1:{
     backgroundColor: '#D5E3FF',
     height:619,
     marginTop:1,
     borderRadius:30,
-    
   },
   head1:{
     backgroundColor: '#D5E3FF',

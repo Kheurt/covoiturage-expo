@@ -2,24 +2,19 @@ import React from "react";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { StyleSheet,Text, View, Image } from 'react-native';
 
-function AlertItem ( {title, navigation:{navigate}} ){
+function ListRowItem ({text, screenName, navigation}){
     return(
       <View style={styles.box1}>
-          <View>
-             <Image source={require('../../assets/avatar-img.jpg')} style={styles.circle1}/>
-          </View>
-          <Text style={styles.name}>{title|'Paul'}</Text>
-          <View style={styles.circle2}>
-            <FontAwesome 
-            onPress={()=>{navigate("Alerts")}} 
-            name="angle-right" size={40} style={styles.icon1}
-            />
-          </View>
+          <Text style={styles.name}>{ props.text | text | 'Paul' }</Text>
+          <View
+            style={styles.circle2}><FontAwesome name="angle-right" size={40} style={styles.icon1}
+            onPress={()=>{navigation.navigate(screenName)}}
+          /></View>
       </View>
     )
 }
 
-export default AlertItem;
+export default ListRowItem;
 
 const styles = StyleSheet.create({
     box1:{
