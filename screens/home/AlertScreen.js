@@ -5,7 +5,7 @@ import { TripDetails } from '../../components/Index';
 import { AlertForm } from '../../components/Index';
 import Header from '../../layout/Header';
 import AlertItem from '../../components/alert/AlertItem';
-import Button from '../../components/common/button';
+import Button from '../../components/common/Button';
 
 export const AlertScreen = ({navigation:{navigate}}) => {
 

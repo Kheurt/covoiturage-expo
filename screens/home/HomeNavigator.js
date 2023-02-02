@@ -32,7 +32,7 @@ export const HomeNavigator = () => {
         <Stack.Screen name="Alerts" component={AlertScreen} options={{ headerShown:false, }}/>
         <Stack.Screen name="AlertDetails" component={AlertDetailsScreen} options={{ headerShown:false, }}/>
 
-        <Stack.Screen name="AlertDetails" component={PassengerHomeScreen} options={{ headerShown:false, }}/>
+        <Stack.Screen name="PassengerHome" component={PassengerHomeScreen} options={{ headerShown:false, }}/>
 
         <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown:false, }}/>
         <Stack.Screen name="Settings" component={SettingScreen} options={{ headerShown:false, }}/>
