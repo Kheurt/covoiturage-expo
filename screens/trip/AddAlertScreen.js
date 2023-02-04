@@ -5,26 +5,20 @@ import { TripDetails } from '../../components/Index';
 import { AlertForm } from '../../components/Index';
 import Header from '../../layout/Header';
 
-const HomeScreen = ( {navigation} ) => {
+export const AddAlertScreen = ( {navigation} ) => {
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          {/* <View style={styles.container}> */}
-            {/* <Header /> */}
-            {/* <View> */}
-              {/* <TripAlert /> */}
-              {/* <TripDetails /> */}
-              <AlertForm navigation={navigation}/>
-            {/* </View> */}
-            {/* <StatusBar style="auto" /> */}
-          {/* </View> */}
+            <StatusBar hidden={true} />
+            <AlertForm navigation={navigation}/>
         </ScrollView>
       </SafeAreaView>
       
     );
   }
+  
 
-export default HomeScreen;
+export default AddAlertScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -34,4 +28,3 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
   });
-  

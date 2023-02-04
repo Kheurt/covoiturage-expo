@@ -5,7 +5,8 @@ import HeaderMain from '../../components/HeaderMain/HeaderMain';
 import Title from '../../components/Title';
 import NewFormInput from '../../components/forms/NewFormInput';
 import Existing from './existing';
-const NewCar = () => {
+
+export const AddCarScreen = () => {
     const [togleOption, setTogleOption] = useState(1);
     const togleHandler = (val)=> setTogleOption(val)
     return ( 
@@ -81,4 +82,3 @@ const styles = StyleSheet.create({
         
     }
 })
-export default NewCar;

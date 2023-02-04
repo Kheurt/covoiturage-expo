@@ -1,14 +1,12 @@
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
-import React, { useState } from "react";
+import React,{useState} from 'react';
+import { View,Text,StyleSheet,Image,ScrollView } from 'react-native';
 import HeaderMain from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
-import { styles } from "../../layout/Style";
+import Search from '../../components/Search/Search';
 
-function Search() {
-    return ( <View></View> );
-}
+// import { Container } from './styles';
 
-export const SearchScreen = ({navigation}) => {
+const SearchPage = ({navigation}) => {
     const [displayNav,setDisplayNav] = useState(false)
     return (
         <View>
@@ -17,7 +15,7 @@ export const SearchScreen = ({navigation}) => {
                 {displayNav ? <Nav navigation={navigation} />:""} 
                 <Search title="search trip"/>
                 <ScrollView>
-                    <View style={styl.imgContainer}>
+                    <View style={styles.imgContainer}>
                         <Image 
                             style={styles.img}
                             source = {require("../../assets/search.png")}
@@ -30,8 +28,7 @@ export const SearchScreen = ({navigation}) => {
         </View>
     );
 }
-
-const styl = StyleSheet.create({
+const styles = StyleSheet.create({
     container:{
         width:"100%",
         alignSelf:"center"
@@ -46,5 +43,4 @@ const styl = StyleSheet.create({
 
     }
 })
-
-export default Search;
+export default SearchPage;

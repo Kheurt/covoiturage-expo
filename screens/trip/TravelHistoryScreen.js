@@ -8,8 +8,8 @@ import AlertItem from '../../components/alert/AlertItem';
 import Button from '../../components/common/Button';
 import { styles } from "../../layout/Style";
 
-export const AlertScreen = ({navigation}) => {
-  //console.log(navigation.routeName)
+export const TravelHistoryScreen = ({navigation}) => {
+
     const AlertDatas = [
         {
             id:1,
@@ -63,12 +63,12 @@ export const AlertScreen = ({navigation}) => {
 
     return ( 
         <View >
-            <Header search={true} screenTitle={"All Alerts"} navigation={navigation}/>
+            <Header search={true} screenTitle={"My Trips"} navigation={navigation}/>
             
             {/* <SafeAreaView> */}
                 {/**
-                 * Passenger Alerts
-                 * List of passengers requisting for a trip
+                 * Planner registred Trips
+                 * List of passengers that are registered for a trip
                  */}
                 <FlatList 
                     style={styles.reducespace}
@@ -79,5 +79,7 @@ export const AlertScreen = ({navigation}) => {
         </View>
      );
 }
+
+
 
 export default AlertScreen;

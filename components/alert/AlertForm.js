@@ -44,7 +44,7 @@ export default function AlertForm( {navigation} ) {
         
       </View>
       <Text style={styles.list}>List of existing alerts </Text>
-      <AlertItem navigation={navigation} />
+      <AlertItem alertTitle={"Paul"} navigation={navigation} />
     </View>
    );
 }

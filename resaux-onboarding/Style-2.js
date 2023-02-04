@@ -131,7 +131,6 @@ export const styles = StyleSheet.create({
   },
   reducespace:{
     columnGap:1,
-    marginBottom:100
   },
   headerimg1:{
     width:180,
@@ -210,83 +209,4 @@ export const styles = StyleSheet.create({
      margin:20,
   },
 
-  //Header Bar
-    head:{
-        backgroundColor: '#D5E3FF',
-        borderRadius: 20,
-        border: 1,
-        width:380,
-        height: 60,
-        marginTop:90,
-        marginLeft:16,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    icon:{
-        marginLeft:12,
-        marginTop:5,
-    },
-    HeaderContainer : {  
-        flexDirection:"row",
-        justifyContent:"space-between",
-        margin:35
-    },
-    HeaderBtn:{
-        borderRadius:10000,
-        backgroundColor:"white",
-        zIndex:1000000000,
-        width:35,
-        height:35
-    },
-    HeaderIcon:{
-        fontSize:18,
-        textAlign:"center",
-        paddingTop:7
-    },
-
-    //Alert Item
-    alertBox:{
-        margin: 9,
-        border: 2,
-        borderRadius: 29,
-        height: 100,
-        width: 360,
-        backgroundColor: '#D5E3FF',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingTop:30,
-        padding:20,
-    },
-    alertAvatar:{
-        width: 45,
-        height:45,
-        backgroundColor: 'white',
-        borderWidth: 2,
-        borderRadius: 30,
-        borderColor: 0,
-        marginRight:10
-    },
-    alertActionBtn:{
-        width: 45,
-        height:45,
-        backgroundColor: 'white',
-        borderWidth: 2,
-        borderRadius: 30,
-        borderColor: 0,
-        backgroundColor:'rgba(84, 91, 253, 1)',
-    },
-    alertTitle:{
-        fontSize:20,
-        marginTop:10,
-        marginLeft:-100,
-    },
-    alertActionBtnIcon:{
-        marginLeft:15,
-        color:'white',
-    },
-    
-    
-
-
-});
-
+  });

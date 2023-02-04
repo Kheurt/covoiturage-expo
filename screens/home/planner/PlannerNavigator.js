@@ -3,36 +3,46 @@ import fontawesome from '@fortawesome/fontawesome'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCircle, faHouse, faUser, faGear, faSquarePlus, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons'
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './HomeScreen';
-import ProfileScreen from '../profile/Profile';
-import { ProfileNavigator } from '../profile/ProfileNavigator';
-import SettingScreen from '../profile/Settings';
-import PlanTripScreen from '../trip/PlanTrip';
-import { LoginScreen } from '../user/Login'
-import { RegistrationScreen } from '../user/Register'
-import { SearchScreen } from '../trip/Search'
-import { Menu } from '../../layout/Menu';
-import { AlertScreen } from './AlertScreen'
-import { AlertDetailsScreen } from './AlertScreen'
-import { PassengerHomeScreen } from './PassengerHomeScreen'
+import { PlannerHomeScreen } from './PlannerHomeScreen';
+import ProfileScreen from '../../profile/Profile';
+import { ProfileNavigator } from '../../profile/ProfileNavigator';
+import SettingScreen from '../../profile/Settings';
+import { SearchScreen } from '../../trip/Search'
+import { Menu } from '../../../layout/Menu';
+import { AlertScreen } from '../AlertScreen'
+//import { AlertScreen } from '../../trip/AlertScreen'
+import { AlertDetailsScreen } from '../../trip/AlertDetailsScreen'
+import { AddAlertScreen } from '../../trip/AddAlertScreen'
+import { AddCarScreen } from '../../cars/AddCarScreen'
+import { CarsScreen, CarDetailsScreen } from '../../cars/CarScreen'
+import { PassengerHomeScreen } from '../passenger/PassengerHomeScreen'
+import { TripListScreen } from '../../trip/TripListScreen';
+import { TravelHistoryScreen } from '../../trip/TravelHistoryScreen';
+import { DriversScreen } from '../../cars/Drivers';
 
 fontawesome.library.add(faCircle, faHouse, faUser, faGear, faSquarePlus, faMagnifyingGlass, faBars);
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export const HomeNavigator = () => {
+export const PlannerNavigator = () => {
     return ( 
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown:false, }}/>
+      <Stack.Navigator initialRouteName="PlannerHome">
+        <Stack.Screen name="PlannerHome" component={PlannerHomeScreen} options={{ headerShown:false, }}/>
 
+        <Stack.Screen name="AddAlert" component={AddAlertScreen} options={{ headerShown:false, }}/>
         <Stack.Screen name="Alerts" component={AlertScreen} options={{ headerShown:false, }}/>
         <Stack.Screen name="AlertDetails" component={AlertDetailsScreen} options={{ headerShown:false, }}/>
 
-        <Stack.Screen name="PassengerHome" component={PassengerHomeScreen} options={{ headerShown:false, }}/>
+        <Stack.Screen name="MyTrips" component={TripListScreen} options={{ headerShown:false, }}/>
+        <Stack.Screen name="History" component={TravelHistoryScreen} options={{ headerShown:false, }}/>
+        <Stack.Screen name="Drivers" component={DriversScreen} options={{ headerShown:false, }}/>
+
+        <Stack.Screen name="AddCar" component={AddCarScreen} options={{ headerShown:false, }}/>
+        <Stack.Screen name="Cars" component={CarsScreen} options={{ headerShown:false, }}/>
+        <Stack.Screen name="CarDetails" component={CarDetailsScreen} options={{ headerShown:false, }}/>
 
         <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown:false, }}/>
         <Stack.Screen name="Settings" component={SettingScreen} options={{ headerShown:false, }}/>
@@ -93,32 +103,32 @@ function AppTabBar({ state, descriptors, navigation }) {
     );
 }
 
-export const HomeNavigatorTabs = () => {
+export const PlannerNavigatorTabs = () => {
     return (
       <Tab.Navigator tabBar={(props) => <AppTabBar {...props} />} screenOptions={{
         tabBarStyle: { position: 'absolute', display: 'none'  },
       }} initialRouteName="HomeTab"
       >
-       <Tab.Screen name="HomeTab" component={HomeNavigator} options={{
+       <Tab.Screen name="HomeTab" component={PlannerNavigator} options={{
             tabBarLabel: 'Home', headerShown:false,
             iconValue:"fa-solid fa-house fa-2xl",
             tabBarHideOnKeyboard:true,
           }}
         />
         <Tab.Screen name="Search" component={SearchScreen} options={{
-          tabBarLabel: 'Search',
+          tabBarLabel: 'Search', headerShown:false,
             iconValue:"fa-solid fa-magnifying-glass",
             tabBarHideOnKeyboard:true,
           }}
         />
-        <Tab.Screen name="Add" component={PlanTripScreen} options={{
+        <Tab.Screen name="Add" component={AddAlertScreen} options={{
           tabBarLabel: 'Settings', headerShown:false,
             iconValue:"fa-solid fa-square-plus fa-2xl",
             tabBarHideOnKeyboard:true,
           }}
         />
         <Tab.Screen name="Profile" component={ProfileNavigator} options={{
-            tabBarLabel: 'Profile',
+            tabBarLabel: 'Profile', headerShown:false,
             iconValue:"fa-solid fa-user fa-2xl",
             tabBarHideOnKeyboard:true,
           }}

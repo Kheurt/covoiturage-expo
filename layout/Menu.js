@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Button, TouchableOpacity, FlatList } from 'react-native';
 import ListRowItem from "../components/ListItems";
+import MenuNav from '../components/Nav/Nav';
 
 export const MenuData = [
     {
@@ -24,12 +25,14 @@ export const MenuData = [
     },
 ]
 
-export const Menu = () => {
+export const Menu = ({navigation}) => {
     return ( <View style={styles.container}>
-        <FlatList
+        {/* <FlatList
           data={MenuData}
           renderItem={({item}) => <ListRowItem style={styles.item} text={item.title} screenName={item.navigationLink} /> }
-        />
+        /> */}
+
+        <MenuNav navigation={navigation} />
       </View> );
 }
 
