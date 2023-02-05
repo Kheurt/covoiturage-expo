@@ -21,6 +21,8 @@ import { PassengerHomeScreen } from '../passenger/PassengerHomeScreen'
 import { TripListScreen } from '../../trip/TripListScreen';
 import { TravelHistoryScreen } from '../../trip/TravelHistoryScreen';
 import { DriversScreen } from '../../cars/Drivers';
+import ProfileSettingsScreen from '../../profile/ProfileSetings';
+import { AddTripScreen } from '../../trip/AddTripScreen';
 
 fontawesome.library.add(faCircle, faHouse, faUser, faGear, faSquarePlus, faMagnifyingGlass, faBars);
 
@@ -46,9 +48,19 @@ export const PlannerNavigator = () => {
 
         <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown:false, }}/>
         <Stack.Screen name="Settings" component={SettingScreen} options={{ headerShown:false, }}/>
+        <Stack.Screen name="ProfileSettings" component={ProfileSettingsScreen} options={{ headerShown:false, }}/>
         <Stack.Screen name="Menu" component={Menu} options={{ headerShown:false, }}/>
       </Stack.Navigator>
      );
+}
+
+export const PlannerAddNavigator = () => {
+  return ( 
+    <Stack.Navigator initialRouteName="AddTrip">
+      <Stack.Screen name="AddCar" component={AddCarScreen} options={{ headerShown:false, }}/>
+      <Stack.Screen name="AddTrip" component={AddTripScreen} options={{ headerShown:false, }}/>
+    </Stack.Navigator>
+   );
 }
 
 function AppTabBar({ state, descriptors, navigation }) {
@@ -121,7 +133,7 @@ export const PlannerNavigatorTabs = () => {
             tabBarHideOnKeyboard:true,
           }}
         />
-        <Tab.Screen name="Add" component={AddAlertScreen} options={{
+        <Tab.Screen name="Add" component={PlannerAddNavigator /*AddCarScreen AddAlertScreen*/} options={{
           tabBarLabel: 'Settings', headerShown:false,
             iconValue:"fa-solid fa-square-plus fa-2xl",
             tabBarHideOnKeyboard:true,

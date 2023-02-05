@@ -1,32 +1,20 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
-import { StatusBar } from 'expo-status-bar';
-import HeaderMain from '../../components/HeaderMain/HeaderMain';
-import Title from '../../components/Title';
-import NewFormInput from '../../components/forms/NewFormInput';
-import Existing from './existing';
-import Header from '../../layout/Header';
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import NewFormInput from "../../components/forms/NewFormInput";
 
-export const AddCarScreen = () => {
+export const AddTripScreen = () => {
     const [togleOption, setTogleOption] = useState(1);
     const togleHandler = (val)=> setTogleOption(val)
     return ( 
         <View style={styles.container}>
             <View style={styles.containerMain}>
-                <Header screenTitle={"Add"}/>
+                <Header screenTitle={"Add Trip"}/>
                 
-                <View style={styles.options}>
-                    <TouchableOpacity style={[styles.btn,togleOption==1?styles.actif:'']}>
-                        <Text>caracteristics</Text>
-                    </TouchableOpacity>         
-                    <TouchableOpacity  style={[styles.btn,togleOption==0?styles.actif:'']}>
-                        <Text>confort</Text>
-                    </TouchableOpacity>    
-                </View>
-                <NewFormInput title='Marque' placeholder='Entrer la marque'/>
-                <NewFormInput title='Matriculation' placeholder='Entrer le matricule'/>
-                <NewFormInput title='Type de moteur' placeholder='Entrer le moteur'/>
-                <NewFormInput title='Nombre de places' placeholder='Entrer le nombre de places'/>
+                <NewFormInput title='Departure' placeholder="Entrer l'origine"/>
+                <NewFormInput title='Destination' placeholder='Entrer la destination'/>
+                <NewFormInput title='Date' placeholder='Entrez la date'/>
+                <NewFormInput title='Schedules' placeholder='Entrez lheure'/>
+                <NewFormInput title='Places' placeholder='Entrez le nombre de places'/>
+                <NewFormInput title='Budget' placeholder='Entez le budget'/>
                 <TouchableOpacity style={styles.btnSend}>
                     <Text style={styles.add}>Add</Text>
                 </TouchableOpacity>

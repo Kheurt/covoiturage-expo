@@ -20,6 +20,22 @@ const MenuNav = ({navigation}) => {
                     
             </View>
             <TouchableOpacity style={styles.block}
+                onPress={()=>navigation.navigate('AddTrip')} 
+            >
+                <Text>Add Trip</Text>
+                <View style={styles.icon}>
+                    <Text style={styles.next}>{'>'}</Text>
+                </View>
+            </TouchableOpacity> 
+            <TouchableOpacity style={styles.block}
+                onPress={()=>navigation.navigate('AddCars')} 
+            >
+                <Text>List of my trips</Text>
+                <View style={styles.icon}>
+                    <Text style={styles.next}>{'>'}</Text>
+                </View>
+            </TouchableOpacity> 
+            <TouchableOpacity style={styles.block}
                 onPress={()=>navigation.navigate('MyTrips')} 
             >
                 <Text>List of my trips</Text>

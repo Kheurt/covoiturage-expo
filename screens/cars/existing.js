@@ -8,7 +8,7 @@ function CarItem (){
           <View>
              <Image source={require('../../assets/profilImg.png')} style={styles.circle1}/>
           </View>
-          <Text style={styles.name}>Paul</Text>
+          <Text style={styles.name}>Toyota XYZ</Text>
           <View style={styles.circle2}><FontAwesome name="angle-right" size={40} style={styles.icon1}/></View>
       </View>
     )

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Image, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import fontawesome from '@fortawesome/fontawesome'
@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCircle, faHouse, faUser, faGear, faSquarePlus, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons'
 import ProfilWidget from '../components/ProfilJ/ProfilJ';
 import { Octicons,MaterialCommunityIcons } from '@expo/vector-icons';
+import MenuNav from '../components/Nav/Nav';
 import { styles } from './Style';
 
 fontawesome.library.add(faCircle, faHouse, faUser, faGear, faSquarePlus, faMagnifyingGlass, faBars);
@@ -35,12 +36,13 @@ function FirstHeader( {screenTitle, menu, search, navigation} ) {
 
 // import { Container } from './styles';
 
-export const Header = ({screenTitle, menu, search, displayNav, stDisplayNav, navigation}) => {
+export const Header = ({screenTitle, menu, search, nav, navigation}) => {
+  const [displayNav,setDisplayNav] = useState(nav ? nav : false)
   const handleDisplayNav = () => {
     if (displayNav) {
-      stDisplayNav(!displayNav)
+      setDisplayNav(!displayNav)
     }else{
-      stDisplayNav(!displayNav)
+      setDisplayNav(!displayNav)
     }
     
   }
@@ -51,7 +53,7 @@ export const Header = ({screenTitle, menu, search, displayNav, stDisplayNav, nav
           { navigation ? console.warn("No navigation component") : console.warn("navigation component exist")  }
           { menu ? <Octicons name="three-bars" style={styles.HeaderIcon} size={24} color="black"
                     //onPress={()=>{navigation?.navigate("Menu")}}
-                    onPress={()=>{navigation?.push("Menu")}}
+                    onPress={handleDisplayNav} //onPress={()=>{navigation?.push("Menu")}}
                   />
                 : <FontAwesome name="angle-left" size={24} onPress={()=>{navigation?.goBack()}} style={styles.icon}/>
             }
@@ -60,7 +62,9 @@ export const Header = ({screenTitle, menu, search, displayNav, stDisplayNav, nav
       </View>
       { search ? <View >
                   <TextInput style={styles.searchbar} placeholder='search' paddingLeft={19}></TextInput>
-                 </View> : <Text style={styles.itemText}> {screenTitle} </Text>  }
+                 </View> : <Text style={styles.itemText}> {screenTitle} </Text>  
+      }
+      {displayNav ? <MenuNav navigation={navigation}/>:""}
     </View>
   );
 }

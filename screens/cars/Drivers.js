@@ -4,4 +4,4 @@ export const DriversScreen = () => {
     return ( <View></View> );
 }
 
-export default Drivers;
+export default DriversScreen;

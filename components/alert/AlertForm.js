@@ -13,6 +13,22 @@ import { Form, FormItem } from 'react-native-form-component';
 
 export default function AlertForm( {navigation} ) {
 
+  
+  const singleOne = {
+      id:7,
+      title:"Sigala Dansi",
+      vehicle:"Lamborguini (XLS59)",
+      date:"03 JAN, 2023",
+      departure:"Yaoundé - Damas",
+      destination:"Yaounde - Nsam",
+      prix:"12000F",
+      profil:"",
+      nbr_places:4,
+      nbr_bookings:0,
+      nbr_booking_confirm:0,
+    }
+   
+
   function validateForm(){
     //submit
   }
@@ -21,7 +37,7 @@ export default function AlertForm( {navigation} ) {
     <View style={styles.container}>
       <View style={styles.container1}>
 
-        <Header screenTitle={"New Alert"} menu={true} />
+        <Header screenTitle={"New Alert"} menu={true} navigation={navigation} />
 
         <Form onButtonPress={() => {console.warn('Form Submited');validateForm() }} 
           buttonText="Ajouter"
@@ -44,7 +60,7 @@ export default function AlertForm( {navigation} ) {
         
       </View>
       <Text style={styles.list}>List of existing alerts </Text>
-      <AlertItem alertTitle={"Paul"} navigation={navigation} />
+      <AlertItem alertData={singleOne} navigation={navigation} />
     </View>
    );
 }

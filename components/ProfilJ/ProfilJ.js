@@ -9,7 +9,7 @@ const ProfilWidget = ({notification, navigation}) => {
   return (
     <View style={styles.container}>
       {diplayNotif}
-      <TouchableOpacity onPress={()=>navigation.navigate("parameters")}>
+      <TouchableOpacity onPress={()=>navigation.navigate("ProfileSettings")}>
         <Image 
           style={styles.profilImg}
           source = {require("../../assets/profil.png")}

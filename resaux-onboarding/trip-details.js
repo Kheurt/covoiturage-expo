@@ -1,8 +1,9 @@
 import { Button, Text, View, StyleSheet } from "react-native";
+import { styles } from "../../layout/Style";
 
-function TripDetails(props) {
+export const TripDetails = (props) => {
     return ( 
-        <View>
+        <View style={styles.blockDetails}>
             <View style={styles.block}>
                 <Text style={styles.blockTitle}>Départ</Text>
                 <Text style={styles.blockSubTitle}>{props.departure || 'Melen - Yaoundé'}</Text>
@@ -40,30 +41,3 @@ function TripDetails(props) {
      );
 }
 
-const styles = StyleSheet.create({
-    block: {
-        flex: 1,
-        flexDirection: 'colums',
-        backgroundColor: '#ecf2fd',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth:1,
-        borderColor: "#fff"
-      },
-    blockTitle: {
-      flex: 1,
-      flexDirection: 'row',
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    blockSubTitle: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-  });
-
-export default TripDetails;

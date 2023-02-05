@@ -114,7 +114,7 @@ export const styles = StyleSheet.create({
     paddingBottom:10,
   },
   headerimg:{
-    marginLeft:10,
+    marginLeft:33,
   },
   headertxt:{
     marginTop:-95,
